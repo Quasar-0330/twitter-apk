@@ -25,32 +25,6 @@ def send_message(message: str, token: str, chat_id: str, thread_id: str):
     requests.post(endpoint, data=data)
 
 
-def report_to_telegram():
-    tg_token = os.environ["TG_TOKEN"]
-    tg_chat_id = os.environ["TG_CHAT_ID"]
-    tg_thread_id = os.environ["TG_THREAD_ID"]
-    release = get_last_build_version("crimera/twitter-apk")
-
-    if release is None:
-        raise Exception("Could not fetch release")
-
-    downloads = [
-        f"[{asset.name}]({asset.browser_download_url})" for asset in release.assets
-    ]
-
-    message = f"""
-[New Update Released !]({release.html_url})
-
-▼ Downloads ▼
-
-{"\n\n".join(downloads)}
-"""
-
-    print(message)
-
-    send_message(message, tg_token, tg_chat_id, tg_thread_id)
-
-
 def download(link, out, headers=None):
     if os.path.exists(out):
         print(f"{out} already exists skipping download")
@@ -100,16 +74,9 @@ def patch_apk(
         "-m",
         integrations,
         # use j-hc's keystore so we wouldn't need to reinstall
-        "--keystore",
-        "ks.keystore",
-        "--keystore-entry-password",
-        "123456789",
-        "--keystore-password",
-        "123456789",
-        "--signer",
-        "jhc",
-        "--keystore-entry-alias",
-        "jhc",
+        "--unsigned",
+        "--exclusive",
+        "--riplib=x86_64 --riplib=x86 --riplib=arm64_v8a"
     ]
 
     if includes is not None:

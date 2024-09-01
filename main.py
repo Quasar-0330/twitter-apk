@@ -2,7 +2,7 @@ from apkmirror import Version, Variant
 from build_variants import build_apks
 from download_bins import download_apkeditor, download_revanced_bins
 import github
-from utils import panic, merge_apk, publish_release, report_to_telegram
+from utils import panic, merge_apk, publish_release
 from download_bins import download_release_asset
 import apkmirror
 import os
@@ -95,15 +95,10 @@ Changelogs:
     publish_release(
         latest_version.version,
         [
-            f"x-piko-v{latest_version.version}.apk",
-            f"x-piko-material-you-v{latest_version.version}.apk",
             f"twitter-piko-v{latest_version.version}.apk",
-            f"twitter-piko-material-you-v{latest_version.version}.apk",
         ],
         message,
     )
-
-    report_to_telegram()
 
 
 if __name__ == "__main__":
