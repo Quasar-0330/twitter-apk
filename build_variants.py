@@ -33,11 +33,13 @@ def build_apks(latest_version: Version):
         "Hide FAB",
         "Custom downloader",
         "Selectable Text",
+        "Control video auto scroll",
         "Customize Navigation Bar items",
         "Customize profile tabs",
         "Customize side bar items",
         "Customize timeline top bar",
         "Customize reply sort filter",
+        "Custom download folder",
         "Clear tracking params",
         "Open browser chooser on opening links",
         "Custom sharing domain"
