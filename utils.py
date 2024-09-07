@@ -11,20 +11,6 @@ def panic(message: str):
     exit(1)
 
 
-def send_message(message: str, token: str, chat_id: str, thread_id: str):
-    endpoint = f"https://api.telegram.org/bot{token}/sendMessage"
-
-    data = {
-        "parse_mode": "Markdown",
-        "disable_web_page_preview": "true",
-        "text": message,
-        "message_thread_id": thread_id,
-        "chat_id": chat_id,
-    }
-
-    requests.post(endpoint, data=data)
-
-
 def download(link, out, headers=None):
     if os.path.exists(out):
         print(f"{out} already exists skipping download")
@@ -76,7 +62,7 @@ def patch_apk(
         # use j-hc's keystore so we wouldn't need to reinstall
         "--unsigned",
         "--exclusive",
-        "--riplib=x86_64 --riplib=x86 --riplib=arm64_v8a",
+        "--rip-lib=x86_64 --rip-lib=x86 --rip-lib=arm64-v8a",
     ]
 
     if includes is not None:

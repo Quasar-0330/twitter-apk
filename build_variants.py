@@ -42,7 +42,6 @@ def build_apks(latest_version: Version):
         "Custom download folder",
         "Clear tracking params",
         "Open browser chooser on opening links",
-        "Custom sharing domain",
     ]
 
     patch_apk(
