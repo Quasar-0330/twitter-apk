@@ -71,7 +71,7 @@ def main():
 
     print("Downloading patches")
     pikoRelease = download_release_asset(
-        "crimera/piko", "^piko.*jar$", "bins", "patches.jar", include_prereleases=True
+        "crimera/piko", "^piko.*jar$", "bins", "patches.jar"
     )
 
     print("Downloading integrations")
@@ -80,7 +80,6 @@ def main():
         "^rev.*apk$",
         "bins",
         "integrations.apk",
-        include_prereleases=True,                     
     )
 
     print(integrationsRelease["body"])
@@ -100,7 +99,6 @@ Changelogs:
         ],
         message,
     )
-
 
 
 if __name__ == "__main__":
