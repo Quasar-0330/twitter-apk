@@ -62,7 +62,9 @@ def patch_apk(
         # use j-hc's keystore so we wouldn't need to reinstall
         "--unsigned",
         "--exclusive",
-        "--rip-lib=x86_64 --rip-lib=x86 --rip-lib=arm64-v8a",
+        "--rip-lib=x86_64",
+        "--rip-lib=x86",
+        "--rip-lib=arm64-v8a",
     ]
 
     if includes is not None:
