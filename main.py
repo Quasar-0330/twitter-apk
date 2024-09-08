@@ -70,19 +70,20 @@ def main():
     download_revanced_bins()
 
     print("Downloading patches")
-    pikoRelease = sorted(github.get_repo("crimera/piko").get_releases(), key=lambda r: r.created_at, reverse=True)[0]
-    piko_asset = download_release_asset(pikoRelease, "^piko.*jar$", "bins", "patches.jar")
-	 
+    pikoRelease = download_release_asset(
+        "crimera/piko", "^piko.*jar$", "bins", "patches.jar", include_prereleases=True
+    )
 
     print("Downloading integrations")
-    integrationsRelease = sorted(github.get_repo("crimera/revanced-integrations").get_releases(), key=lambda r: r.created_at, reverse=True)[0]
-    integrations_asset = download_release_asset(integrationsRelease, "^rev.*apk$", "bins", "integrations.apk")
-					 
-			   
-						   
-	 
+    integrationsRelease = download_release_asset(
+        "crimera/revanced-integrations",
+        "^rev.*apk$",
+        "bins",
+        "integrations.apk",
+        include_prereleases=True,                     
+    )
 
-    print(integrations_asset["body"])
+    print(integrationsRelease["body"])
 
     message: str = f"""
 Changelogs:
@@ -99,6 +100,7 @@ Changelogs:
         ],
         message,
     )
+
 
 
 if __name__ == "__main__":
