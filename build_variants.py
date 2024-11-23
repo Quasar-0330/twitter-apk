@@ -10,7 +10,6 @@ def build_apks(latest_version: Version):
     cli = "bins/cli.jar"
 
     common_includes = [
-        "Hide FAB Menu Buttons",
         "Disable chirp font",
         "Hook feature flag",
         "Enable PiP mode automatically",
@@ -43,6 +42,14 @@ def build_apks(latest_version: Version):
         "Clear tracking params",
         "Open browser chooser on opening links",
         "Custom translator",
+        "Enable PiP mode automatically",
+        "Enable Undo Posts",
+        "Hide Banner",
+        "Custom downloader",
+        "Hide Promoted Trends",
+        "Remove main event",
+        "Remove superhero event",
+        "Dynamic color",
     ]
 
     patch_apk(
