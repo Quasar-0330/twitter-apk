@@ -49,7 +49,6 @@ def build_apks(latest_version: Version):
         "Hide Promoted Trends",
         "Remove main event",
         "Remove superhero event",
-        "Dynamic color",
     ]
 
     patch_apk(
