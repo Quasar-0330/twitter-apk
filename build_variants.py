@@ -49,6 +49,7 @@ def build_apks(latest_version: Version):
         "Hide Promoted Trends",
         "Remove main event",
         "Remove superhero event",
+        "Customize explore tabs",
     ]
 
     patch_apk(
