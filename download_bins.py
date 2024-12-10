@@ -39,7 +39,6 @@ def download_apkeditor():
 
 
 def download_revanced_bins():
-    print("Downloading cli")
-    download_release_asset(
-        "inotia00/revanced-cli", "^revanced-cli.*jar$", "bins", "cli.jar"
-    )
+    cli_link = "https://github.com/inotia00/revanced-cli/releases/download/v4.6.2/revanced-cli-4.6.2-all.jar"
+    print("Downloading cli (v4.6.2)")
+    download(cli_link, "bins/cli.jar")
