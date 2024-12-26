@@ -57,6 +57,6 @@ def build_apks(latest_version: Version):
         integrations,
         patches,
         apk,
-        includes=["Bring back twitter"] + common_includes,
-        out=f"twitter-piko-v{latest_version.version}.apk",
+        includes=common_includes,
+        out=f"x-piko-material-you-piko-v{latest_version.version}.apk",
     )
